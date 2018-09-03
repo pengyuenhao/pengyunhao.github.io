@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="欢迎Hexo!.  documentation 想要查看更多关于Hexo的信息或者有任何问题欢迎查看进入网站. 你可以在这里找到很多的答案 troubleshooting 或者你可以去看 GitHub. 快速开始创建文章1$ hexo new &quot;My New Post&quot; 更多信息: Writing 运行服务1$ hexo server 更多信息: Server 生成静态文件1$ hexo gene">
+<meta name="description" content="什么是Ioc所谓的Ioc即为控制反转（Inversion of Control），实际上Ioc并不是一个框架而是一个概念一种设计思想。例如Human类要执行Tool类的方法，那么Human首先需要获取Tool类的对象，要么在类中自己New一个对象，要么通过某种渠道获取Tool的对象。 IOC的意思就是把对象获取的这个过程交给容器来处理，整个过程中Human类并不知道Tool的对象是哪来的，也不知道">
 <meta name="keywords" content="日志">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你好，世界！">
+<meta property="og:title" content="如何实现一个轻量级Ioc容器">
 <meta property="og:url" content="http://www.pengyunhao.xyz/2018/08/30/hello-world/index.html">
 <meta property="og:site_name" content="长路漫漫">
-<meta property="og:description" content="欢迎Hexo!.  documentation 想要查看更多关于Hexo的信息或者有任何问题欢迎查看进入网站. 你可以在这里找到很多的答案 troubleshooting 或者你可以去看 GitHub. 快速开始创建文章1$ hexo new &quot;My New Post&quot; 更多信息: Writing 运行服务1$ hexo server 更多信息: Server 生成静态文件1$ hexo gene">
+<meta property="og:description" content="什么是Ioc所谓的Ioc即为控制反转（Inversion of Control），实际上Ioc并不是一个框架而是一个概念一种设计思想。例如Human类要执行Tool类的方法，那么Human首先需要获取Tool类的对象，要么在类中自己New一个对象，要么通过某种渠道获取Tool的对象。 IOC的意思就是把对象获取的这个过程交给容器来处理，整个过程中Human类并不知道Tool的对象是哪来的，也不知道">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-30T00:21:59.772Z">
+<meta property="og:updated_time" content="2018-09-03T02:13:40.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你好，世界！">
-<meta name="twitter:description" content="欢迎Hexo!.  documentation 想要查看更多关于Hexo的信息或者有任何问题欢迎查看进入网站. 你可以在这里找到很多的答案 troubleshooting 或者你可以去看 GitHub. 快速开始创建文章1$ hexo new &quot;My New Post&quot; 更多信息: Writing 运行服务1$ hexo server 更多信息: Server 生成静态文件1$ hexo gene">
+<meta name="twitter:title" content="如何实现一个轻量级Ioc容器">
+<meta name="twitter:description" content="什么是Ioc所谓的Ioc即为控制反转（Inversion of Control），实际上Ioc并不是一个框架而是一个概念一种设计思想。例如Human类要执行Tool类的方法，那么Human首先需要获取Tool类的对象，要么在类中自己New一个对象，要么通过某种渠道获取Tool的对象。 IOC的意思就是把对象获取的这个过程交给容器来处理，整个过程中Human类并不知道Tool的对象是哪来的，也不知道">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>你好，世界！ | 长路漫漫</title>
+  <title>如何实现一个轻量级Ioc容器 | 长路漫漫</title>
   
 
 
@@ -253,7 +253,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">你好，世界！</h1>
+          <h1 class="post-title" itemprop="name headline">如何实现一个轻量级Ioc容器</h1>
         
 
         <div class="post-meta">
@@ -303,15 +303,24 @@
       
 
       
-        <p>欢迎<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>!.  <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> 想要查看更多关于Hexo的信息或者有任何问题欢迎查看进入网站. 你可以在这里找到很多的答案 <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> 或者你可以去看 <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>更多信息: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="运行服务"><a href="#运行服务" class="headerlink" title="运行服务"></a>运行服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>更多信息: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>更多信息: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="配置远端网站"><a href="#配置远端网站" class="headerlink" title="配置远端网站"></a>配置远端网站</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>更多信息: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="什么是Ioc"><a href="#什么是Ioc" class="headerlink" title="什么是Ioc"></a>什么是Ioc</h2><p>所谓的Ioc即为控制反转（Inversion of Control），实际上Ioc并不是一个框架而是一个概念一种设计思想。例如Human类要执行Tool类的方法，那么Human首先需要获取Tool类的对象，要么在类中自己New一个对象，要么通过某种渠道获取Tool的对象。</p>
+<p>IOC的意思就是把对象获取的这个过程交给容器来处理，整个过程中Human类并不知道Tool的对象是哪来的，也不知道具体是怎么构造的。</p>
+<h2 id="Ioc的意义"><a href="#Ioc的意义" class="headerlink" title="Ioc的意义"></a>Ioc的意义</h2><p>传统方法都是由类在内部主动创建依赖对象，这样会导致类与类之间产生非常高的耦合，尤其是工程量越来越大的时候，高耦合会直接让项目面临牵一发而动全身的窘境。</p>
+<p>利用IoC我们能设计出松耦合的程序，可以将各个功能模块单独的剥离出来。原本A依赖B，B依赖C，单独测试A几乎是不可能的，但是利用Ioc则可以在C不存在的情况完成对A的测试。</p>
+<p>实际上IoC对编程带来的最大改变是从思想上，发生了“主从换位”的变化。类原本是程序的核心，各种资源都是主动获取，但是在IoC思想中，类就变成被动等待IoC容器来创建并注入它所需要的资源了。类似于原本都是自己买菜做饭，现在点外卖很方便，所以大家都变宅了。</p>
+<h3 id="如何实现Ioc"><a href="#如何实现Ioc" class="headerlink" title="如何实现Ioc"></a>如何实现Ioc</h3><p>控制反转这个词比较难从直观上给出实现的办法，所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注入”，相对IoC 而言，“依赖注入”明确描述了“被注入对象依赖IoC容器配置依赖对象”。</p>
+<p>DI—Dependency Injection，即“依赖注入”：是组件之间依赖关系由容器在运行期决定，形象的说，即由容器动态的将某个依赖关系注入到组件之中。依赖注入的目的并非为软件系统带来更多功能，而是为了提升组件重用的频率，并为系统搭建一个灵活、可扩展的平台。通过依赖注入机制，我们只需要通过简单的配置，而无需任何代码就可指定目标需要的资源，完成自身的业务逻辑，而不需要关心具体的资源来自何处，由谁实现。</p>
+<p>构造注入</p>
+<p>这是我认为的最简单的依赖注入方式，我们修改一下上面代码中MovieList的构造函数，使得MovieFinderImpl的实现在MovieLister类之外创建。这样，MovieLister就只依赖于我们定义的MovieFinder接口，而不依赖于MovieFinder的实现了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class MovieLister &#123;</span><br><span class="line">    private MovieFinder finder;</span><br><span class="line"></span><br><span class="line">    public MovieLister(MovieFinder finder) &#123;</span><br><span class="line">        this.finder = finder;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接口注入</p>
+<p>接口注入使用接口来提供setter方法，其实现方式如下。<br>首先要创建一个注入使用的接口。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface InjectFinder &#123;</span><br><span class="line">    void injectFinder(MovieFinder finder);</span><br><span class="line">&#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Setter注入</p>
+<p>类似的，我们可以增加一个setter函数来传入创建好的MovieFinder对象，这样同样可以避免在MovieFinder中hard init这个对象。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class MovieLister &#123;</span><br><span class="line">    s...</span><br><span class="line">    public void setFinder(MovieFinder finder) &#123;</span><br><span class="line">        this.finder = finder;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="总计一下"><a href="#总计一下" class="headerlink" title="总计一下"></a>总计一下</h3><p>依赖注入降低了依赖和被依赖类型间的耦合，在修改被依赖的类型实现时，不需要修改依赖类型的实现，同时，对于依赖类型的测试，可以更方便的使用mocking object替代原有的被依赖类型，以达到对依赖对象独立进行单元测试的目的。</p>
+<p>最后需要注意的是，依赖注入只是控制反转的一种实现方式。控制反转还有一种常见的实现方式称为依赖查找。</p>
 
       
     </div>
@@ -467,7 +476,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速开始"><span class="nav-number">1.</span> <span class="nav-text">快速开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建文章"><span class="nav-number">1.1.</span> <span class="nav-text">创建文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行服务"><span class="nav-number">1.2.</span> <span class="nav-text">运行服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成静态文件"><span class="nav-number">1.3.</span> <span class="nav-text">生成静态文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置远端网站"><span class="nav-number">1.4.</span> <span class="nav-text">配置远端网站</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Ioc"><span class="nav-number">1.</span> <span class="nav-text">什么是Ioc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ioc的意义"><span class="nav-number">2.</span> <span class="nav-text">Ioc的意义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何实现Ioc"><span class="nav-number">2.1.</span> <span class="nav-text">如何实现Ioc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总计一下"><span class="nav-number">2.2.</span> <span class="nav-text">总计一下</span></a></li></ol></li></ol></div>
             
 
           </div>
